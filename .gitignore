@@ -1,0 +1,5 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/UmrechnungsTaschenrechner/.vs/UmrechnungsTaschenrechner/v16/Server/sqlite3
