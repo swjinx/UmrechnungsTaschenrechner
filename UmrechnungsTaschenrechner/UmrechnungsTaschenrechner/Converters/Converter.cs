@@ -152,6 +152,8 @@ namespace UmrechnungTaschenrechner.Converters
                 numInt /= b;
             }
             res = res.Reverse();
+            if (numInt == 0)
+                res += "0";
             res += ',';
             if (numberSplit.Length == 2)
             { 
