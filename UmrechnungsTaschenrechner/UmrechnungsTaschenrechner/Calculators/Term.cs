@@ -32,9 +32,19 @@ namespace UmrechnungTaschenrechner.Calculators
                 if (termArr[i] == "(")
                 {
                     int j;
+                    int brackets = 1;
                     string subterm = string.Empty;
-                    for (j = i + 1; j < termArr.Length && termArr[j] != ")"; j++)
+                    for (j = i + 1; j < termArr.Length && brackets > 0; j++)
+                    {
                         subterm += termArr[j] + " ";
+                        if (termArr[j] == "(")
+                            brackets++;
+                        else if (termArr[j] == ")")
+                            brackets--;
+                    }
+                    //delete rightmost copied char and space from string
+                    j--;
+                    subterm = subterm.Substring(0, subterm.Length - 2);
                     termArr = termArr.ReplaceManyWithOne(i, j, DeriveTerm(subterm));
                 }
             }
