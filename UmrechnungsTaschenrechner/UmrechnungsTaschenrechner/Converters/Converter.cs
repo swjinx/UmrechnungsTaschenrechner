@@ -145,6 +145,8 @@ namespace UmrechnungTaschenrechner.Converters
             var numberSplit = num.Split(',', StringSplitOptions.RemoveEmptyEntries);
             int.TryParse(numberSplit[0], out int numInt);
             string res = string.Empty;
+            if (numInt == 0)
+                res += "0";
             while (numInt > 0)
             {
                 int a = numInt % b;
@@ -152,8 +154,6 @@ namespace UmrechnungTaschenrechner.Converters
                 numInt /= b;
             }
             res = res.Reverse();
-            if (numInt == 0)
-                res += "0";
             res += ',';
             if (numberSplit.Length == 2)
             { 
