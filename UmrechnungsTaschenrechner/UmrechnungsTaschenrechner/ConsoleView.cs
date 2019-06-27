@@ -1,4 +1,5 @@
 ﻿using System;
+using UmrechnungTaschenrechner.Calculators;
 using UmrechnungTaschenrechner.Converters;
 
 namespace UmrechnungTaschenrechner
@@ -38,11 +39,11 @@ namespace UmrechnungTaschenrechner
 
         static void Calculate()
         {
-            Console.WriteLine("Bitte einen Term eingeben und dabei Zahlen und Operanden mit ' '(Leerzeichen) trennen:");
+            Console.WriteLine("Bitte einen Term eingeben und dabei Zahlen, Operanden und Klammern mit ' '(Leerzeichen) trennen:");
             var term = Console.ReadLine();
             term = term.Replace('.', ',');
             Console.WriteLine("Das Ergebnis lautet:");
-            var res = Calculators.Term.DeriveTerm(term);
+            var res = Term.DeriveTerm(term).Substring(1);
             Console.WriteLine("Dezimal: " + Converter.DecimalToString(res, 10));
             Console.WriteLine("Binär: " + Converter.DecimalToString(res, 2));
             Console.WriteLine("Octal: " + Converter.DecimalToString(res, 8));
