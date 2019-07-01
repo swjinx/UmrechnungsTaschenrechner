@@ -79,7 +79,7 @@ namespace UmrechnungTaschenrechner.Converters
         {
             decimal res = 0;
             number = number.Substring(1);
-            var numberSplit = number.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            var numberSplit = number.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             int multiply = 1;
             for (int i = numberSplit[0].Length - 1; i > -1; i--)
             {
@@ -142,7 +142,7 @@ namespace UmrechnungTaschenrechner.Converters
         /// <returns>convertet number as string</returns>
         public static string DecimalToString(string num, int b)
         {
-            var numberSplit = num.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            var numberSplit = num.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             int.TryParse(numberSplit[0], out int numInt);
             string res = string.Empty;
             if (numInt == 0)

@@ -15,7 +15,7 @@ namespace UmrechnungTaschenrechner.Calculators
         /// <returns>the result of the term as a decimal number string</returns>
         public static string DeriveTerm(string term)
         {
-            var termArr = term.Split(' ',StringSplitOptions.RemoveEmptyEntries);
+            var termArr = term.Split(new char[] { ' ' },StringSplitOptions.RemoveEmptyEntries);
             termArr = Brackets(termArr);
             termArr = PointBeforeLines(termArr);
             return CalculateResult(termArr);
@@ -77,7 +77,7 @@ namespace UmrechnungTaschenrechner.Calculators
             {
                 return "d" + Converters.Converter.FromDecString(termArr[0]).ToString();
             }
-            while(termArr.Length > 1)
+            while(termArr.Length > 2)
             {
                 termArr = termArr.ReplaceManyWithOne(0, 2, Numbers.Derive(termArr[0], termArr[2], termArr[1]));
             }
