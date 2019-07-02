@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using UmrechnungTaschenrechner.Calculators;
+using System.Windows;
 
 namespace ZSR_Frontend.ViewModels
 {
@@ -89,16 +90,21 @@ namespace ZSR_Frontend.ViewModels
 
         private void Calculate(object param)
         {
-            if (string.IsNullOrEmpty(TermString))
-                return;
-            TermString = TermString.Replace('.', ',');
-            var res = Term.DeriveTerm(TermString).Substring(1);
-            Dezimal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 10);
-            Binär = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 2);
-            Octal =  UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 8);
-            Hexadecimal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 16);
-            History.Add(TermString + " = d" + res);
-            TermString = string.Empty;
+            try
+            {
+                TermString = TermString.Replace('.', ',');
+                var res = Term.DeriveTerm(TermString).Substring(1);
+                Dezimal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 10);
+                Binär = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 2);
+                Octal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 8);
+                Hexadecimal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 16);
+                History.Add(TermString + " = d" + res);
+                TermString = string.Empty;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Der eingegebene Term ist nicht korrekt.\nBitte korrigieren Sie die Eingabe.");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
