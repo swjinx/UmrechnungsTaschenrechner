@@ -103,7 +103,7 @@ namespace ZSR_Frontend.ViewModels
             }
             catch (Exception)
             {
-                MessageBox.Show("Der eingegebene Term ist nicht korrekt.\nBitte korrigieren Sie die Eingabe.");
+                MessageBox.Show("Der eingegebene Term ist nicht korrekt.\nBitte korrigieren Sie die Eingabe.","An Error occured!", MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
 
