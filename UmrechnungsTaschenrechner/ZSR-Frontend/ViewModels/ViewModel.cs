@@ -98,6 +98,7 @@ namespace ZSR_Frontend.ViewModels
             Octal =  UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 8);
             Hexadecimal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 16);
             History.Add(TermString + " = d" + res);
+            TermString = string.Empty;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
