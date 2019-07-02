@@ -19,7 +19,7 @@
         <Label Content="Binär:" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" IsReadOnly="True" Margin="92,99,0,0" TextWrapping="Wrap" Text="{Binding Binär}" VerticalAlignment="Top" Width="192"/>
         <Label Content="Octal:" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23"  IsReadOnly="False" Margin="92,127,0,0" TextWrapping="Wrap" Text="{Binding Octal}" VerticalAlignment="Top" Width="192"/>
+        <TextBox HorizontalAlignment="Left" Height="23"  IsReadOnly="True" Margin="92,127,0,0" TextWrapping="Wrap" Text="{Binding Octal}" VerticalAlignment="Top" Width="192"/>
         <Label Content="Hexadezimal" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="92,155,0,0" TextWrapping="Wrap" Text="{Binding Hexadecimal}" VerticalAlignment="Top" Width="192"/>
         <ListBox HorizontalAlignment="Left" Height="107" Margin="302,71,0,0" VerticalAlignment="Top" Width="233" ItemsSource="{Binding History}"/>
