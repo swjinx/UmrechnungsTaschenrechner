@@ -5,11 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZSR_Frontend"
         xmlns:vm="clr-namespace:ZSR_Frontend.ViewModels"
+        xmlns:con="clr-namespace:ZSR_Frontend.Converter"
         mc:Ignorable="d"
         Title="Zahlensystmrechner" MinHeight="230" MinWidth="552" Width="552" Height="230">
     <Window.DataContext>
         <vm:ViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <con:RevListConverter x:Key="RevList"/>
+        </ResourceDictionary>
+    </Window.Resources>
     <Viewbox>
     <Grid>
         <Label Content="Term:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -22,7 +28,7 @@
         <TextBox HorizontalAlignment="Left" Height="23"  IsReadOnly="True" Margin="92,127,0,0" TextWrapping="Wrap" Text="{Binding Octal}" VerticalAlignment="Top" Width="192"/>
         <Label Content="Hexadezimal" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="92,155,0,0" TextWrapping="Wrap" Text="{Binding Hexadecimal}" VerticalAlignment="Top" Width="192"/>
-        <ListBox HorizontalAlignment="Left" Height="107" Margin="302,71,0,0" VerticalAlignment="Top" Width="233" ItemsSource="{Binding History}"/>
+        <ListBox HorizontalAlignment="Left" Height="107" Margin="302,71,0,0" VerticalAlignment="Top" Width="233" ItemsSource="{Binding History, Converter={StaticResource RevList}, Mode=TwoWay}"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="127" Margin="10,64,0,0" VerticalAlignment="Top" Width="281"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="127" Margin="296,64,0,0" VerticalAlignment="Top" Width="244"/>
         <Label Content="Ergebnis" HorizontalAlignment="Left" Margin="12,41,0,0" VerticalAlignment="Top"/>

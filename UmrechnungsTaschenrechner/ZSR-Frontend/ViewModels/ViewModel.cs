@@ -99,6 +99,7 @@ namespace ZSR_Frontend.ViewModels
                 Octal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 8);
                 Hexadecimal = UmrechnungTaschenrechner.Converters.Converter.DecimalToString(res, 16);
                 History.Add(TermString + " = d" + res);
+                NotifyPropertyChanged(nameof(History));
                 TermString = string.Empty;
             }
             catch (Exception)
