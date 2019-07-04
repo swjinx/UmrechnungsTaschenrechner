@@ -41,7 +41,7 @@ namespace UmrechnungTaschenrechner
         {
             try
             {
-                Console.WriteLine("Bitte einen Term eingeben und dabei Zahlen, Operanden und Klammern mit ' '(Leerzeichen) trennen:");
+                Console.WriteLine("Bitte einen Term eingeben:");
                 var term = Console.ReadLine();
                 term = term.Replace('.', ',');
                 Console.WriteLine("Das Ergebnis lautet:");

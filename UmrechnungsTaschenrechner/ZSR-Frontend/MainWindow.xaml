@@ -19,7 +19,7 @@
     <Viewbox>
     <Grid>
         <Label Content="Term:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" ToolTip="Bitte Klammern, Operatoren und Zahlen mit Leerzeichen trennen." Margin="54,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding TermString}" Width="407"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="54,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding TermString}" Width="407"/>
         <Label Content="Dezimal:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" IsReadOnly="True" Margin="92,71,0,0" TextWrapping="Wrap" Text="{Binding Dezimal}" VerticalAlignment="Top" Width="192"/>
         <Label Content="Binär:" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top"/>
