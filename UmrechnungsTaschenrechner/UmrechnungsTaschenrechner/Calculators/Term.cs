@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using UmrechnungTaschenrechner.StringHelpers;
-using System.Linq;
 
 namespace UmrechnungTaschenrechner.Calculators
 {
@@ -17,15 +14,22 @@ namespace UmrechnungTaschenrechner.Calculators
         /// <returns>the result of the term as a decimal number string</returns>
         public static string DeriveTerm(string term)
         {
-            //var termArr = term.Split(new char[] { ' ' },StringSplitOptions.RemoveEmptyEntries);
-            if (Regex.IsMatch(term, "d[0-9]*|h[0-9a-f]*|o[0-8]*|b[0-1]*|[+]|[*]|[(]|[)]|[-]|[\\/]"))
+            var x = Regex.Replace(term, "d[0-9]*|h[0-9a-f]*|o[0-8]*|b[0-1]*|[+]|[*]|[(]|[)]|[-]|[\\/]", string.Empty).Trim();
+            if (string.IsNullOrEmpty(x))
             {
                 var termMatches = Regex.Matches(term, "d[0-9]*|h[0-9a-f]*|o[0-8]*|b[0-1]*|[+]|[*]|[(]|[)]|[-]|[\\/]");
                 var termArr = new string[termMatches.Count];
+                int bracketsCount = 0;
                 for (int i = 0; i < termMatches.Count; i++)
                 {
                     termArr[i] = termMatches[i].Value;
+                    if (termArr[i] == "(")
+                        bracketsCount++;
+                    else if (termArr[i] == ")")
+                        bracketsCount--;
                 }
+                if (bracketsCount != 0)
+                    throw new Exception();
                 termArr = Brackets(termArr);
                 termArr = PointBeforeLines(termArr);
                 return CalculateResult(termArr);
