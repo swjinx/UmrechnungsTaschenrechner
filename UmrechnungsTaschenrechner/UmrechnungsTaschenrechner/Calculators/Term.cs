@@ -14,10 +14,10 @@ namespace UmrechnungTaschenrechner.Calculators
         /// <returns>the result of the term as a decimal number string</returns>
         public static string DeriveTerm(string term)
         {
-            var x = Regex.Replace(term, "d([0-9]+,?[0-9]*)|h([0-9a-f]+,?[0-9a-f]*)|o([0-8]+,?[0-8]*)|b([0-1]+,?[0-1]*)|[+]|[*]|[(]|[)]|[-]|[\\/]", string.Empty).Trim();
+            var x = Regex.Replace(term, "d-?([0-9]+,?[0-9]*)|h-?([0-9a-f]+,?[0-9a-f]*)|o-?([0-8]+,?[0-8]*)|b-?([0-1]+,?[0-1]*)|[+]|[*]|[(]|[)]|[-]|[\\/]", string.Empty).Trim();
             if (string.IsNullOrEmpty(x))
             {
-                var termMatches = Regex.Matches(term, "d([0-9]+,?[0-9]*)|h([0-9a-f]+,?[0-9a-f]*)|o([0-8]+,?[0-8]*)|b([0-1]+,?[0-1]*)|[+]|[*]|[(]|[)]|[-]|[\\/]");
+                var termMatches = Regex.Matches(term, "d-?([0-9]+,?[0-9]*)|h-?([0-9a-f]+,?[0-9a-f]*)|o-?([0-8]+,?[0-8]*)|b-?([0-1]+,?[0-1]*)|[+]|[*]|[(]|[)]|[-]|[\\/]");
                 var termArr = new string[termMatches.Count];
                 int bracketsCount = 0;
                 for (int i = 0; i < termMatches.Count; i++)

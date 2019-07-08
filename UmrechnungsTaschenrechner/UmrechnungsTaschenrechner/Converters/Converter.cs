@@ -142,11 +142,14 @@ namespace UmrechnungTaschenrechner.Converters
         /// <returns>convertet number as string</returns>
         public static string DecimalToString(string num, int b)
         {
+            
             var numberSplit = num.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             int.TryParse(numberSplit[0], out int numInt);
             string res = string.Empty;
             if (numInt == 0)
                 res += "0";
+            if (num[0] == '-')
+                numInt *= -1;
             while (numInt > 0)
             {
                 int a = numInt % b;
@@ -176,6 +179,8 @@ namespace UmrechnungTaschenrechner.Converters
             {
                 res += '0';
             }
+            if (num[0] == '-')
+                res = "-" + res;
             return res;
         }
         /// <summary>
